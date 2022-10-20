@@ -42,9 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Creating a relationship
+    // Creating a relationship chirps
     public function chirps()
     {
         return $this->hasMany(Chirp::class);
+    }
+
+    // Creating a relationship prattles
+    public function prattles()
+    {
+        return $this->hasMany(Prattle::class);
     }
 }

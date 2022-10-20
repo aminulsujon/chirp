@@ -25,4 +25,10 @@ class Chirp extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // Creating a prattles to Chirps
+    public function prattles()
+    {
+        return $this->hasMany(Prattle::class, 'chirp_id');
+    }
 }

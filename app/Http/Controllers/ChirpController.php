@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chirp;
+use App\Models\Prattle;
+
 use Illuminate\Http\Request;
 
 class ChirpController extends Controller
@@ -15,8 +17,11 @@ class ChirpController extends Controller
     public function index()
     {
         return view('chirps.index', [
-            'chirps' => Chirp::with('user')->latest()->get(),
+            'chirps' => Chirp::with('prattles')->latest()->get(),
         ]);
+        /*return view('chirps.index', [
+            'chirps' => Chirp::with('user')->with('prettle')->latest()->get(),
+        ]);*/
     }
 
     /**
@@ -43,7 +48,7 @@ class ChirpController extends Controller
  
         $request->user()->chirps()->create($validated);
  
-        return redirect(route('chirps.index'));
+        return redirect(route('chirps.index'))->with('success','The Chirps saved successfully!');
     }
 
     /**
@@ -54,7 +59,11 @@ class ChirpController extends Controller
      */
     public function show(Chirp $chirp)
     {
-        //
+        $prattles = Prattle::with('user')->where('chirp_id',$chirp->id)->get();
+        return view('chirps.show', [
+            'chirp' => $chirp,
+            'prattles' => $prattles
+        ]);
     }
 
     /**
@@ -65,7 +74,7 @@ class ChirpController extends Controller
      */
     public function edit(Chirp $chirp)
     {
-        //
+        // 
         $this->authorize('update', $chirp);
  
         return view('chirps.edit', [
@@ -91,7 +100,7 @@ class ChirpController extends Controller
  
         $chirp->update($validated);
  
-        return redirect(route('chirps.index'));
+        return redirect(route('chirps.index'))->with('success','The Chirps updated successfully!');
     }
 
     /**
@@ -106,6 +115,6 @@ class ChirpController extends Controller
  
         $chirp->delete();
  
-        return redirect(route('chirps.index'));
+        return redirect(route('chirps.index'))->with('success','The Chirps deleted successfully!');
     }
 }
