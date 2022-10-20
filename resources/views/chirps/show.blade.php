@@ -52,7 +52,7 @@
 
         <!-- Prattle Old -->
         <div class="mt-2 bg-white shadow-sm rounded-lg divide-y mx-6">
-            <div class="p-6 py-3 font-bold">Prattles</div>
+            <div class="p-6 py-3 font-bold">Prattles ({{count($prattles)}})</div>
             @foreach ($prattles as $prattle)
                 <div class="p-6 flex space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 -scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
