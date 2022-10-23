@@ -45,6 +45,10 @@
                     <p class="mt-4 text-lg text-gray-900">
                         {{ __($chirp->message) }}
                     </p>
+                    <p class="mt-4 text-lg text-gray-900">
+                        @include('buttonChirpActions')
+                    </p>
+                    
                 </div>
             </div>
             

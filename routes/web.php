@@ -1,6 +1,6 @@
 <?php
-
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\PrattleController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 Route::resource('chirps', ChirpController::class)
     ->only(['index', 'store', 'edit', 'show', 'update', 'destroy'])
+    ->middleware(['auth', 'verified']);
+
+Route::resource('playlists', PlaylistController::class)
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 Route::resource('prattles', PrattleController::class)
