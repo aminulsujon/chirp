@@ -53,4 +53,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Prattle::class);
     }
+
+    // Creating a relationship playlists
+    public function playlists()
+    {
+        return $this->hasMany(playlist::class);
+    }
 }

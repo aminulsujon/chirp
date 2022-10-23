@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index') || request()->routeIs('chirps.show') || request()->routeIs('chirps.edit')">
                         {{ __('Chirps') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('playlists.index')" :active="request()->routeIs('playlists.index') || request()->routeIs('playlists.show') || request()->routeIs('playlists.edit')">
+                        {{ __('Playlists') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -71,6 +74,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
                 {{ __('Chirps') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('playlists.index')" :active="request()->routeIs('playlists.index') || request()->routeIs('playlists.show') || request()->routeIs('playlists.edit')">
+                {{ __('Playlists') }}
             </x-responsive-nav-link>
         </div>
 

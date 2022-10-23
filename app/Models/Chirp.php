@@ -6,6 +6,7 @@ use App\Events\ChirpCreated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Chirp extends Model
 {
     use HasFactory;
@@ -32,3 +33,4 @@ class Chirp extends Model
         return $this->hasMany(Prattle::class, 'chirp_id');
     }
 }
+ 
