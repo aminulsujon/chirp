@@ -12,6 +12,40 @@
                     You're logged in!
                 </div>
             </div>
+
+            
+
+            <!-- component -->
+            <div class="flex flex-col">
+            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                <div class="ml-4">
+                    <h2 class="font-semibold">--- Chirps</h2>
+                </div>
+                </div>
+
+                <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                
+                <div class="ml-4">
+                    <h2 class="font-semibold">--- Prattles</h2>
+                </div>
+                </div>
+                <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                
+
+                <div class="ml-4">
+                    <h2 class="font-semibold">--- Playlist</h2>
+                </div>
+                </div>
+                <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
+                
+
+                <div class="ml-4">
+                    <h2 class="font-semibold">--- Following</h2>
+                </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </x-app-layout>

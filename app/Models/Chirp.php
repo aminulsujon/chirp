@@ -32,5 +32,13 @@ class Chirp extends Model
     {
         return $this->hasMany(Prattle::class, 'chirp_id');
     }
+
+    /**
+     * The playlists that belong to the chirps.
+     */
+    public function playlists()
+    {
+        return $this->belongsToMany(Playlist::class);
+    }
 }
  

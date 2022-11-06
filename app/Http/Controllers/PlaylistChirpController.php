@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Auth;
-use App\Models\Playlist;
+
+use App\Models\PlaylistChirp;
 use Illuminate\Http\Request;
 
-class PlaylistController extends Controller
+class PlaylistChirpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        return view('playlists.index', [
-            'playlists' => Playlist::where(['user_id'=>Auth::user()->id])->latest()->get(),
-        ]);
+        //
     }
 
     /**
@@ -37,22 +35,16 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255'
-        ]);
- 
-        $request->user()->playlists()->create($validated);
- 
-        return redirect()->back()->with('success','The playlist saved successfully!');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Playlist  $playlist
+     * @param  \App\Models\PlaylistChirp  $playlistChirp
      * @return \Illuminate\Http\Response
      */
-    public function show(Playlist $playlist)
+    public function show(PlaylistChirp $playlistChirp)
     {
         //
     }
@@ -60,10 +52,10 @@ class PlaylistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Playlist  $playlist
+     * @param  \App\Models\PlaylistChirp  $playlistChirp
      * @return \Illuminate\Http\Response
      */
-    public function edit(Playlist $playlist)
+    public function edit(PlaylistChirp $playlistChirp)
     {
         //
     }
@@ -72,10 +64,10 @@ class PlaylistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Playlist  $playlist
+     * @param  \App\Models\PlaylistChirp  $playlistChirp
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Playlist $playlist)
+    public function update(Request $request, PlaylistChirp $playlistChirp)
     {
         //
     }
@@ -83,10 +75,10 @@ class PlaylistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Playlist  $playlist
+     * @param  \App\Models\PlaylistChirp  $playlistChirp
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Playlist $playlist)
+    public function destroy(PlaylistChirp $playlistChirp)
     {
         //
     }
