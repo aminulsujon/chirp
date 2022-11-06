@@ -2,11 +2,7 @@
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
         <form method="POST" action="{{ route('playlists.store') }}">
             @csrf
-            <textarea
-                name="message"
-                placeholder="{{ __('Write playlist title') }}"
-                class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-            >{{ old('message') }}</textarea>
+            <input type="text" placeholder="Playlist title..." name="title" autocomplete="txtList" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Create Playlist') }}</x-primary-button>
         </form>
@@ -22,10 +18,6 @@
                         <div class="flex justify-between items-center">
                             <div>
                                 <span class="text-gray-800">{{ __($playlist->title) }}</span>
-                                <small class="ml-2 text-sm text-gray-600">{{ $playlist->created_at->format('j M Y, g:i a') }}</small>
-                                @unless ($playlist->created_at->eq($playlist->updated_at))
-                                    <small class="text-sm text-gray-600"> &middot; {{ __('edited') }}</small>
-                                @endunless
                             </div>
                             @if ($playlist->user->is(auth()->user()))
                                 <x-dropdown>
